@@ -3,6 +3,7 @@ using UnityEngine;
 public class LimbController : MonoBehaviour
 {
     public ConstrainedCursorFollow[] LimbTargets;
+    public MotionRecorder Recorder;
 
     int currentLimb = 0;
 
@@ -10,6 +11,7 @@ public class LimbController : MonoBehaviour
     void Start()
     {
         ActivateLimb(currentLimb);
+        Recorder.StartRecording();
     }
 
     // Update is called once per frame
@@ -17,12 +19,14 @@ public class LimbController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            ++currentLimb;
-            if (currentLimb >= LimbTargets.Length)
-            {
-                currentLimb = 0;
-            }
-            ActivateLimb(currentLimb);
+            //++currentLimb;
+            //if (currentLimb >= LimbTargets.Length)
+            //{
+            //    currentLimb = 0;
+            //}
+            //ActivateLimb(currentLimb);
+            DeactivateAllLimbs();
+            Recorder.StartPlayback();
         }
     }
 
