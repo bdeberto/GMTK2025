@@ -4,12 +4,14 @@ public class GameplayManager : MonoBehaviour
 {
     public LevelTrackController LevelTrack = default;
     public LimbController Limbs = default;
+    public TargetSpawner TargetSpawn = default;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LevelTrack.Activate(this);
         Limbs.Activate(this);
+        TargetSpawn.Activate(this);
     }
 
     // Update is called once per frame
@@ -26,5 +28,10 @@ public class GameplayManager : MonoBehaviour
     public void ReportLimbCollision()
     {
         Limbs.StunCurrentLimb();
+    }
+
+    public void SpawnTargets()
+    {
+        TargetSpawn.SpawnNextTarget();
     }
 }

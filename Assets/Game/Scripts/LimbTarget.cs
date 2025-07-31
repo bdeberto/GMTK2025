@@ -27,8 +27,11 @@ public class LimbTarget : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        HitIndicator.color = Color.white;
-        hit = collision.transform;
+        if (alive)
+        {
+            HitIndicator.color = Color.white;
+            hit = collision.transform;
+        }
 	}
 
 	private void OnTriggerExit2D(Collider2D collision)
@@ -53,7 +56,7 @@ public class LimbTarget : MonoBehaviour
     {
         yield return new WaitForSeconds(AliveTime);
         transform.DOScale(0f, .5f);
-		IndicatorRing.DORotate(Vector3.zero, .5f);
+		IndicatorRing.DORotate(Vector3.zero, .2f);
         if (hit != null)
         {
             float d = Vector3.Distance(transform.position, hit.position);
