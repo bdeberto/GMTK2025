@@ -27,13 +27,16 @@ public class TargetSpawner : MonoBehaviour
 
     public void SpawnNextTarget()
     {
-        Transform t = Targets[currentTarget++];
-        LimbTarget l = Instantiate(targetPrefab);
-        l.transform.position = t.position;
-        l.Activate(gameManager);
-        if (currentTarget == Targets.Length)
+        if (!gameManager.LevelTrack.IsDone())
         {
-            currentTarget = 0;
+            Transform t = Targets[currentTarget++];
+            LimbTarget l = Instantiate(targetPrefab);
+            l.transform.position = t.position;
+            l.Activate(gameManager);
+            if (currentTarget == Targets.Length)
+            {
+                currentTarget = 0;
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ public class GameplayManager : MonoBehaviour
     public GameUIController UIControl = default;
 
     int targetsHit = 0;
-    int targetsRequired = 5;
+    int targetsRequired = 30;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +17,7 @@ public class GameplayManager : MonoBehaviour
         LevelTrack.Activate(this);
         Limbs.Activate(this);
         TargetSpawn.Activate(this);
-        UIControl.SetCounter(targetsHit, 10);
+        UIControl.SetCounter(targetsHit, targetsRequired);
         StartCoroutine(DoPlayGame());
     }
 

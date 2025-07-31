@@ -47,12 +47,16 @@ public class LevelTrackController : MonoBehaviour
         isDone = false;
         confirmed = false;
         StartCoroutine(DoLevel());
-
     }
 
     bool DoContinue()
     {
         return !isRunning && isDone && confirmed;
+    }
+
+    public bool IsDone()
+    {
+        return isDone;
     }
 
     IEnumerator DoLevel()
@@ -84,7 +88,7 @@ public class LevelTrackController : MonoBehaviour
                 yield return new WaitForSeconds((float)Director.duration);
 				gameManager.Limbs.StopAllPlayback();
                 gameManager.Limbs.DeactivateAllLimbs();
-			} while (OKToContinue);
+			} while (!OKToContinue);
 		}
         Director.Play();
 		Director.extrapolationMode = DirectorWrapMode.Loop;
