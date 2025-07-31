@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class LimbController : MonoBehaviour
 {
-    public ConstrainedCursorFollow[] LimbTargets;
-    public MotionRecorder Recorder;
+    public ConstrainedCursorFollow[] LimbTargets = default;
+    public LimbCollision[] LimbColliders = default;
+    public MotionRecorder Recorder = default;
 
-    int currentLimb = 0;
+    int currentLimb = 3;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,8 +26,10 @@ public class LimbController : MonoBehaviour
             //    currentLimb = 0;
             //}
             //ActivateLimb(currentLimb);
-            DeactivateAllLimbs();
-            Recorder.StartPlayback();
+
+
+            //DeactivateAllLimbs();
+            //Recorder.StartPlayback();
         }
     }
 
@@ -35,6 +38,14 @@ public class LimbController : MonoBehaviour
 		for (int i = 0; i < LimbTargets.Length; ++i)
 		{
 			LimbTargets[i].enabled = i == index;
+            if (i == index)
+            {
+                LimbColliders[i].DoCollisions();
+            }
+            else
+            {
+				LimbColliders[i].DetectCollisions();
+			}
 		}
 	}
 
@@ -43,6 +54,7 @@ public class LimbController : MonoBehaviour
         for (int i = 0; i < LimbTargets.Length; ++i)
         {
             LimbTargets[i].enabled = false;
+            LimbColliders[i].Deactivate();
         }
     }
 }
