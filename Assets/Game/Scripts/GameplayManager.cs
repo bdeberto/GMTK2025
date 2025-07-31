@@ -30,7 +30,7 @@ public class GameplayManager : MonoBehaviour
 
     IEnumerator DoPlayGame()
     {
-        LevelTrack.BeginLevel();
+        //LevelTrack.BeginLevel();
         yield return null;
     }
 

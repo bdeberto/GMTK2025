@@ -1,11 +1,11 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BeatBounce : MonoBehaviour
 {
     public float Amplitude = .25f;
     public float BPM = 60f;
+    public float Delay = 0f;
 
     float startingY = 0f;
 
@@ -14,7 +14,7 @@ public class BeatBounce : MonoBehaviour
     {
         startingY = transform.position.y;
         Bounce();
-		transform.DOMoveY(startingY, 60f / BPM).SetEase(Ease.OutCubic).SetLoops(-1).OnComplete(Bounce).Play();
+		transform.DOMoveY(startingY, 60f / BPM).SetDelay(Delay).SetEase(Ease.OutCubic).SetLoops(-1).OnComplete(Bounce).Play();
 	}
 
     void Bounce()

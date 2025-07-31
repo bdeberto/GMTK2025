@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c6d7a01d3ddb39a4c9be7b751e3d271b
+guid: 2e26e89a0dd76ef4c94896dfcf82080c
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -11,12 +11,6 @@ TextureImporter:
   - first:
       213: 7611973313624473454
     second: Face_2
-  - first:
-      213: 7440065255334422891
-    second: Face_3
-  - first:
-      213: -7458664974307914783
-    second: Face_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,10 +122,10 @@ TextureImporter:
       name: Face_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 216
-        width: 13
-        height: 13
+        x: 0
+        y: 253
+        width: 512
+        height: 190
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,7 +147,7 @@ TextureImporter:
         x: 199
         y: 229
         width: 81
-        height: 60
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +166,10 @@ TextureImporter:
       name: Face_2
       rect:
         serializedVersion: 2
-        x: 113
-        y: 209
-        width: 13
-        height: 13
+        x: 77
+        y: 81
+        width: 303
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,50 +180,6 @@ TextureImporter:
       bones: []
       spriteID: e6ff656166923a960800000000000000
       internalID: 7611973313624473454
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Face_3
-      rect:
-        serializedVersion: 2
-        x: 425
-        y: 215
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b692fe93eeb604760800000000000000
-      internalID: 7440065255334422891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Face_4
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 82
-        width: 395
-        height: 127
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1eb8abb39bf7d7890800000000000000
-      internalID: -7458664974307914783
       vertices: []
       indices: 
       edges: []
@@ -251,8 +201,6 @@ TextureImporter:
       Face_0: -9201241512177023075
       Face_1: -7115748212699113225
       Face_2: 7611973313624473454
-      Face_3: 7440065255334422891
-      Face_4: -7458664974307914783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,20 +14,21 @@ public class ConstrainedCursorFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //TODO: MAKE THIS INTERPOLATE TO CURSOR INSTEAD
         float z = transform.position.z;
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.z = z;
         float d = Vector3.Distance(Constraint.position, target);
+        Vector3 targetPos;
         if (d > MaxDistance)
         {
             float x = target.x / d * MaxDistance;
             float y = target.y / d * MaxDistance;
-            transform.position = new Vector3(x, y, z);
+			targetPos = new Vector3(x, y, z);
         }
         else
         {
-            transform.position = target;
+			targetPos = target;
         }
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 7f);
     }
 }
