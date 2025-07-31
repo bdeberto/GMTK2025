@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LimbController : MonoBehaviour
@@ -7,6 +8,7 @@ public class LimbController : MonoBehaviour
     public MotionRecorder Recorder = default;
 
     int currentLimb = 3;
+    GameplayManager gameManager = default;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,6 +33,45 @@ public class LimbController : MonoBehaviour
 
             //DeactivateAllLimbs();
             //Recorder.StartPlayback();
+        }
+    }
+
+    public void Activate(GameplayManager manager)
+    {
+        gameManager = manager;
+        foreach (LimbCollision c in LimbColliders)
+        {
+            c.Activate(manager);
+        }
+    }
+
+    public void StunCurrentLimb()
+    {
+        StartCoroutine(DoCurrentLimbStun());
+    }
+
+    IEnumerator DoCurrentLimbStun()
+    {
+        Rigidbody2D rb = LimbTargets[currentLimb].GetComponentInChildren<Rigidbody2D>();
+        SpriteRenderer sr = null;
+        Color c = Color.white;
+		if (rb != null)
+        {
+            sr = rb.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                c = sr.color;
+                sr.color = Color.red;
+            }
+        }
+        LimbColliders[currentLimb].Deactivate();
+        LimbTargets[currentLimb].enabled = false;
+        yield return new WaitForSeconds(1f);
+		LimbColliders[currentLimb].DoCollisions();
+        LimbTargets[currentLimb].enabled = true;
+        if (sr != null)
+        {
+            sr.color = c;
         }
     }
 

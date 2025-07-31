@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class LimbCollision : MonoBehaviour
 {
     public Collider2D CollisionDetector = default;
     public Collider2D Collision = default;
+
+    GameplayManager gameManager = default;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,6 +18,11 @@ public class LimbCollision : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Activate(GameplayManager manager)
+    {
+        gameManager = manager;
     }
 
     public void DetectCollisions()
@@ -37,6 +45,6 @@ public class LimbCollision : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        Debug.Log("HIT BY " + collision.gameObject.name);
+        gameManager.ReportLimbCollision();
 	}
 }

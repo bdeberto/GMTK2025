@@ -11,12 +11,12 @@ public class LimbTarget : MonoBehaviour
     Color originalColor = default;
     Transform hit = null;
     bool alive = true;
+    GameplayManager gameManager = default;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        originalColor = HitIndicator.color;
-        Activate();
+        
     }
 
     // Update is called once per frame
@@ -40,9 +40,11 @@ public class LimbTarget : MonoBehaviour
         }
 	}
 
-	public void Activate()
+	public void Activate(GameplayManager manager)
     {
-        IndicatorRing.DOScale(2f, AliveTime);
+        gameManager = manager;
+		originalColor = HitIndicator.color;
+		IndicatorRing.DOScale(2f, AliveTime);
         IndicatorRing.DORotate(Vector3.forward * 180f, AliveTime).SetEase(Ease.OutCubic);
         StartCoroutine(SignalParent());
     }
@@ -55,7 +57,7 @@ public class LimbTarget : MonoBehaviour
         if (hit != null)
         {
             float d = Vector3.Distance(transform.position, hit.position);
-            //TODO: report hit
+            gameManager.ReportHit(d);
         }
         alive = false;
 		yield return new WaitForSeconds(.6f);
