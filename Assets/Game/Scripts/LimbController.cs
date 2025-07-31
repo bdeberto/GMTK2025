@@ -11,8 +11,9 @@ public class LimbController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ActivateLimb(currentLimb);
-        Recorder.StartRecording();
+        //ActivateLimb(currentLimb);
+        //Recorder.StartRecording();
+        DeactivateAllLimbs();
     }
 
     // Update is called once per frame
