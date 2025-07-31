@@ -5,6 +5,8 @@ using UnityEngine.Timeline;
 public class LevelTrackController : MonoBehaviour
 {
     public PlayableDirector Director = default;
+    public Transform[] TargetSpawnRoots = default;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
