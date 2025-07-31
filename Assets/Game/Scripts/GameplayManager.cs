@@ -9,7 +9,7 @@ public class GameplayManager : MonoBehaviour
     public GameUIController UIControl = default;
 
     int targetsHit = 0;
-    int targetsRequired = 30;
+    int targetsRequired = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
