@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -6,17 +7,21 @@ public class LevelTrackController : MonoBehaviour
 {
     public PlayableDirector Director = default;
     public Transform[] TargetSpawnRoots = default;
-    public LimbTarget TargetPrefab = default;
+    public PlayableAsset LeadInAsset = default;
+    public PlayableAsset LevelAsset = default;
+    public AudioSource[] SoundChannels = default;
+
+    public bool OKToContinue { set; get; }
 
     GameplayManager gameManager = default;
-    float totalTimer = -1f;
-    float safeTime = -1f;
     bool isRunning = false;
+    bool isDone = false;
+    bool confirmed = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        OKToContinue = false;
     }
 
     // Update is called once per frame
@@ -24,17 +29,9 @@ public class LevelTrackController : MonoBehaviour
     {
         if (isRunning)
         {
-            if (totalTimer < safeTime && Input.GetKeyDown(KeyCode.Mouse0))
+            if (isDone && Input.GetKeyDown(KeyCode.Mouse0))
             {
-
-
-                
-            }
-            totalTimer += Time.deltaTime;
-            if (totalTimer > Director.duration)
-            {
-                totalTimer = 0f;
-                Debug.Log("Looping back");
+                DoContinue();
             }
         }
     }
@@ -42,11 +39,60 @@ public class LevelTrackController : MonoBehaviour
     public void Activate(GameplayManager manager)
     {
         gameManager = manager;
-        totalTimer = 0f;
-        safeTime = (float)Director.duration - 2f;
-        Director.Play();
-        isRunning = true;
     }
 
+    public void BeginLevel()
+    {
+        isRunning = true;
+        isDone = false;
+        confirmed = false;
+        StartCoroutine(DoLevel());
 
+    }
+
+    bool DoContinue()
+    {
+        return !isRunning && isDone && confirmed;
+    }
+
+    IEnumerator DoLevel()
+    {
+        foreach (AudioSource a in SoundChannels)
+        {
+            a.enabled = false;
+        }
+        for (int i = 0; i < 4; ++i)
+        {
+			SoundChannels[i].enabled = true;
+			do
+            {
+                Director.extrapolationMode = DirectorWrapMode.None;
+                Director.playableAsset = LeadInAsset;
+                gameManager.Limbs.ActivateLimb(i);
+                Director.Play();
+                yield return new WaitForSeconds((float)Director.duration);
+                Director.playableAsset = LevelAsset;
+                Director.Play();
+                for (int j = 0; j < 4; ++j)
+                {
+                    if (j != i)
+                    {
+                        gameManager.Limbs.StartPlayback(j);
+                    }
+                }
+				gameManager.Limbs.StartRecording(i);
+                yield return new WaitForSeconds((float)Director.duration);
+				gameManager.Limbs.StopAllPlayback();
+                gameManager.Limbs.DeactivateAllLimbs();
+			} while (OKToContinue);
+		}
+        Director.Play();
+		Director.extrapolationMode = DirectorWrapMode.Loop;
+		for (int j = 0; j < 4; ++j)
+		{
+			gameManager.Limbs.StartPlayback(j, true);
+		}
+		isDone = true;
+        yield return new WaitUntil(DoContinue);
+	}
 }

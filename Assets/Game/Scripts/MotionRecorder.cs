@@ -20,6 +20,7 @@ public class MotionRecorder : MonoBehaviour
     float timer = 0f;
     PlaybackState state = PlaybackState.OFF;
     float lastRecordedTime = 0f;
+    bool loopPlayback = false;
 
     const float TIME_STEP = .02f;
 
@@ -55,9 +56,13 @@ public class MotionRecorder : MonoBehaviour
         else if (state == PlaybackState.PLAYBACK)
         {
 			int i = (int)(timer / TIME_STEP);
-			if (i < recordedMotion.Count)
+            if (i < recordedMotion.Count)
             {
                 transform.position = recordedMotion[i].Point;
+            }
+            else if (loopPlayback)
+            {
+                timer = 0f;
             }
         }
     }
@@ -69,14 +74,23 @@ public class MotionRecorder : MonoBehaviour
         state = PlaybackState.RECORD;
     }
 
-    public void StartPlayback()
+    public void StartPlayback(bool loop = false)
     {
+        loopPlayback = loop;
         timer = 0f;
         state = PlaybackState.PLAYBACK;
     }
 
 	public void Stop()
 	{
-        state = PlaybackState.OFF;
+        if (state != PlaybackState.PLAYBACK)
+        {
+            state = PlaybackState.OFF;
+        }
+	}
+
+    public void FullStop()
+    {
+		state = PlaybackState.OFF;
 	}
 }

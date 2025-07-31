@@ -1,11 +1,12 @@
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class LimbController : MonoBehaviour
 {
     public ConstrainedCursorFollow[] LimbTargets = default;
     public LimbCollision[] LimbColliders = default;
-    public MotionRecorder Recorder = default;
+    public MotionRecorder[] Recorders = default;
 
     int currentLimb = 3;
     GameplayManager gameManager = default;
@@ -13,27 +14,13 @@ public class LimbController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ActivateLimb(currentLimb);
-        //Recorder.StartRecording();
-        //DeactivateAllLimbs();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            //++currentLimb;
-            //if (currentLimb >= LimbTargets.Length)
-            //{
-            //    currentLimb = 0;
-            //}
-            //ActivateLimb(currentLimb);
 
-
-            //DeactivateAllLimbs();
-            //Recorder.StartPlayback();
-        }
     }
 
     public void Activate(GameplayManager manager)
@@ -83,6 +70,8 @@ public class LimbController : MonoBehaviour
             if (i == index)
             {
                 LimbColliders[i].DoCollisions();
+                currentLimb = i;
+                Recorders[i].Stop();
             }
             else
             {
@@ -99,4 +88,38 @@ public class LimbController : MonoBehaviour
             LimbColliders[i].Deactivate();
         }
     }
+
+    public void StopAllPlayback()
+    {
+        foreach (MotionRecorder r in Recorders)
+        {
+            r.FullStop();
+        }
+    }
+
+    public void StartRecording(int index)
+    {
+        for (int i = 0; i < Recorders.Length; ++i)
+        {
+            if (i == index)
+            {
+                Recorders[i].StartRecording();
+            }
+            else
+            {
+                Recorders[i].Stop();
+            }
+        }
+    }
+
+    public void StartPlayback(int index, bool looping = false)
+    {
+		for (int i = 0; i < Recorders.Length; ++i)
+		{
+			if (i == index)
+			{
+				Recorders[i].StartPlayback(looping);
+			}
+		}
+	}
 }
