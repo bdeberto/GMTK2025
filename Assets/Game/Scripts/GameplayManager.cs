@@ -16,6 +16,7 @@ public class GameplayManager : MonoBehaviour
     {
         LevelTrack.Activate(this);
         Limbs.Activate(this);
+        Limbs.DeactivateAllLimbs();
         TargetSpawn.Activate(this);
         UIControl.SetCounter(targetsHit, targetsRequired);
         StartCoroutine(DoPlayGame());

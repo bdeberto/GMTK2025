@@ -49,6 +49,7 @@ public class LimbTarget : MonoBehaviour
 		originalColor = HitIndicator.color;
 		IndicatorRing.DOScale(2f, AliveTime);
         IndicatorRing.DORotate(Vector3.forward * 180f, AliveTime).SetEase(Ease.OutCubic);
+        alive = true;
         StartCoroutine(SignalParent());
     }
 
