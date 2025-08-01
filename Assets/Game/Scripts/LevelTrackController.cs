@@ -91,7 +91,7 @@ public class LevelTrackController : MonoBehaviour
                 Director.playableAsset = LeadInAsset;
 				Director.Play();
                 gameManager.Limbs.LimbHighlight(i);
-				yield return new WaitForSeconds(3);
+				yield return new WaitForSeconds((float)Director.duration - 2);
 				gameManager.Limbs.ActivateLimb(i);
                 yield return new WaitForSeconds(2);
                 Director.playableAsset = LevelAsset;
