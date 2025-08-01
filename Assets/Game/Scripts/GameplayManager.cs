@@ -30,9 +30,9 @@ public class GameplayManager : MonoBehaviour
 
     IEnumerator DoPlayGame()
     {
-        LevelTrack.BeginLevel();
-        yield return null;
-    }
+        yield return new WaitForSeconds(3);
+		LevelTrack.BeginLevel();
+	}
 
     public void ReportHit(float distance)
     {

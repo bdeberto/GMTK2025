@@ -127,10 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073289000}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (1)
@@ -489,10 +485,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073289000}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (2)
@@ -603,7 +595,7 @@ Transform:
   m_GameObject: {fileID: 134212717}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -1.59, z: 0}
+  m_LocalPosition: {x: 0.2, y: -1.17, z: 0}
   m_LocalScale: {x: 0.2131, y: 0.6057557, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1220,10 +1212,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1544787986}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (2)
@@ -2065,10 +2053,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 634937178}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (1)
@@ -2193,10 +2177,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1544787986}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector
@@ -2598,10 +2578,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 634937178}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (3)
@@ -2923,10 +2899,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1544787986}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (3)
@@ -2989,10 +2961,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674230832}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (3)
@@ -3520,10 +3488,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073289000}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (3)
@@ -4178,10 +4142,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674230832}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (1)
@@ -4672,10 +4632,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 634937178}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector
@@ -5031,10 +4987,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674230832}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (2)
@@ -5097,10 +5049,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 634937178}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (2)
@@ -5441,10 +5389,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1544787986}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector (1)
@@ -5723,7 +5667,7 @@ Transform:
   m_GameObject: {fileID: 1964674241}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.91276157, w: 0.40849283}
-  m_LocalPosition: {x: 1.5925297, y: 0.7138507, z: 0}
+  m_LocalPosition: {x: 1.3, y: 0.46, z: 0}
   m_LocalScale: {x: 0.21309996, y: 0.60575557, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5837,7 +5781,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.9960785, g: 0.77647066, b: 0.21960786, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6064,10 +6008,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073289000}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector
@@ -6130,10 +6070,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674230832}
     m_Modifications:
-    - target: {fileID: 534340559418315064, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1143950662602475677, guid: dc73f77f058dc1240be87654a749d10b, type: 3}
       propertyPath: m_Name
       value: Connector
