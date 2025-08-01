@@ -51,10 +51,10 @@ public class LimbController : MonoBehaviour
             }
         }
         LimbColliders[currentLimb].Deactivate();
-        LimbTargets[currentLimb].enabled = false;
+        LimbTargets[currentLimb].Rest();
         yield return new WaitForSeconds(1f);
 		LimbColliders[currentLimb].DoCollisions();
-        LimbTargets[currentLimb].enabled = true;
+        LimbTargets[currentLimb].Wake();
         if (sr != null)
         {
             sr.color = c;
@@ -65,15 +65,16 @@ public class LimbController : MonoBehaviour
     {
 		for (int i = 0; i < LimbTargets.Length; ++i)
 		{
-			LimbTargets[i].enabled = i == index;
             if (i == index)
             {
-                LimbColliders[i].DoCollisions();
+                LimbTargets[i].Wake();
+				LimbColliders[i].DoCollisions();
                 currentLimb = i;
                 Recorders[i].Stop();
             }
             else
             {
+                LimbTargets[i].Rest();
 				LimbColliders[i].DetectCollisions();
 			}
 		}
@@ -83,7 +84,7 @@ public class LimbController : MonoBehaviour
     {
         for (int i = 0; i < LimbTargets.Length; ++i)
         {
-            LimbTargets[i].enabled = false;
+            LimbTargets[i].Rest();
             LimbColliders[i].Deactivate();
         }
     }

@@ -5,30 +5,51 @@ public class ConstrainedCursorFollow : MonoBehaviour
     public Transform Constraint = default;
     public float MaxDistance = 4f;
 
+    bool resting = true;
+    Vector3 startPostition = default;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        resting = false;
+        startPostition = transform.position;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        float z = transform.position.z;
-        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        target.z = z;
-        float d = Vector3.Distance(Constraint.position, target);
-        Vector3 targetPos;
-        if (d > MaxDistance)
+		Vector3 targetPos;
+		if (resting)
         {
-            float x = target.x / d * MaxDistance;
-            float y = target.y / d * MaxDistance;
-			targetPos = new Vector3(x, y, z);
+            targetPos = startPostition;
         }
         else
         {
-			targetPos = target;
+            float z = transform.position.z;
+            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            target.z = z;
+            float d = Vector3.Distance(Constraint.position, target);
+            if (d > MaxDistance)
+            {
+                float x = target.x / d * MaxDistance;
+                float y = target.y / d * MaxDistance;
+                targetPos = new Vector3(x, y, z);
+            }
+            else
+            {
+                targetPos = target;
+            }
         }
         transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 7f);
+    }
+
+    public void Rest()
+    {
+        resting = true;
+    }
+
+    public void Wake()
+    {
+        resting = false;
     }
 }
