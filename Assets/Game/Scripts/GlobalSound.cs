@@ -7,6 +7,8 @@ public class GlobalSound : MonoBehaviour
 	public AudioResource[] OuchBarks = default;
     public AudioResource[] PraiseBarks = default;
     public AudioResource Rewind = default;
+	public AudioResource LoopBack = default;
+	public AudioResource Goal = default;
 
     AudioSource source = default;
 
@@ -40,6 +42,18 @@ public class GlobalSound : MonoBehaviour
 	public void PlayRewind()
 	{
 		source.resource = Rewind;
+		source.Play();
+	}
+
+	public void PlayLoopBack()
+	{
+		source.resource = LoopBack;
+		source.Play();
+	}
+
+	public void PlayGoal()
+	{
+		source.resource = Goal;
 		source.Play();
 	}
 }

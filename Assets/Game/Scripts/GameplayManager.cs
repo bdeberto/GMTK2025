@@ -31,7 +31,7 @@ public class GameplayManager : MonoBehaviour
 
     IEnumerator DoPlayGame()
     {
-        yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(3);
 		LevelTrack.BeginLevel();
 	}
 

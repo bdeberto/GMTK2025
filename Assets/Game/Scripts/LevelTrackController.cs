@@ -113,6 +113,14 @@ public class LevelTrackController : MonoBehaviour
                     gameManager.Sound.PlayRewind();
                 }
 			} while (!OKToContinue);
+            if (i < 3)
+            {
+                gameManager.Sound.PlayLoopBack();
+            }
+            else
+            {
+                gameManager.Sound.PlayGoal();
+            }
 		}
         Director.Play();
 		Director.extrapolationMode = DirectorWrapMode.Loop;

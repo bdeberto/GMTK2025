@@ -643,7 +643,7 @@ Transform:
   m_GameObject: {fileID: 149763021}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39, y: 0.71, z: 0}
+  m_LocalPosition: {x: 0.226, y: 0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1087,6 +1087,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b32280536458adf4eb98793d14d7b0c4, type: 3}
   - {fileID: 8300000, guid: 48f2f07a688b74e478af363a71325cc7, type: 3}
   Rewind: {fileID: 8300000, guid: 14914b1448f231e47a90df0d52a9e0ff, type: 3}
+  LoopBack: {fileID: 8300000, guid: 478410c61152f70429e544e36b8e7afe, type: 3}
+  Goal: {fileID: 8300000, guid: 7b5ec5a1428106a43b9f1bb6777fb328, type: 3}
 --- !u!1 &299231193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,7 +3553,7 @@ Transform:
   m_GameObject: {fileID: 1313561182}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.39, y: 0.71, z: 0}
+  m_LocalPosition: {x: -0.286, y: 0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
