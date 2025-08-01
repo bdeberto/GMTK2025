@@ -5,7 +5,7 @@ public class TargetSpawner : MonoBehaviour
     public LimbTarget targetPrefab = default;
     public Transform[] Targets = default;
 
-    int currentTarget = 0;
+    int currentTarget = 1;
     GameplayManager gameManager = default;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,7 +35,7 @@ public class TargetSpawner : MonoBehaviour
             l.Activate(gameManager);
             if (currentTarget == Targets.Length)
             {
-                currentTarget = 0;
+                currentTarget = 1;
             }
         }
     }

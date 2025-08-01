@@ -1,14 +1,27 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
 public class LevelTrackController : MonoBehaviour
 {
+    [System.Serializable]
+    public struct Level
+    {
+		public float bpm;
+        public Color bgColor;
+		public PlayableAsset leadIn;
+        public PlayableAsset levelTrack;
+        public Transform[] limbTargetParents;
+        public int[] pointThresholds;
+    }
+
     public PlayableDirector Director = default;
-    public Transform[] TargetSpawnRoots = default;
     public PlayableAsset LeadInAsset = default;
     public PlayableAsset LevelAsset = default;
     public AudioSource[] SoundChannels = default;
+
+    public Level[] levels = default;
 
     public bool OKToContinue { set; get; }
 
@@ -60,12 +73,17 @@ public class LevelTrackController : MonoBehaviour
 
     IEnumerator DoLevel()
     {
+        BeatBounceSync.SetBPM(90f);
+        Camera.main.DOColor(new Color(224f / 255f, 109f / 255f, 6f / 255f), 2f);
         foreach (AudioSource a in SoundChannels)
         {
             a.enabled = false;
         }
         for (int i = 0; i < 4; ++i)
         {
+			gameManager.TargetSpawn.Targets = levels[0].limbTargetParents[i].GetComponentsInChildren<Transform>();
+            gameManager.targetsHit = 0;
+            gameManager.targetsRequired = levels[0].pointThresholds[i];
 			SoundChannels[i].enabled = true;
 			do
             {
