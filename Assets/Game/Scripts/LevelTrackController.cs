@@ -73,7 +73,8 @@ public class LevelTrackController : MonoBehaviour
 
     IEnumerator DoLevel()
     {
-        BeatBounceSync.SetBPM(90f);
+        float bpm = 90f;
+        BeatBounceSync.SetBPM(bpm);
         Camera.main.DOColor(new Color(224f / 255f, 109f / 255f, 6f / 255f), 2f);
         foreach (AudioSource a in SoundChannels)
         {
@@ -91,9 +92,9 @@ public class LevelTrackController : MonoBehaviour
                 Director.playableAsset = LeadInAsset;
 				Director.Play();
                 gameManager.Limbs.LimbHighlight(i);
-				yield return new WaitForSeconds((float)Director.duration - 2);
+				yield return new WaitForSeconds(8f / bpm * 60f - 2f);
 				gameManager.Limbs.ActivateLimb(i);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(2f);
                 Director.playableAsset = LevelAsset;
                 Director.Play();
                 for (int j = 0; j < 4; ++j)
@@ -107,6 +108,10 @@ public class LevelTrackController : MonoBehaviour
                 yield return new WaitForSeconds((float)Director.duration);
 				gameManager.Limbs.StopAllPlayback();
                 gameManager.Limbs.DeactivateAllLimbs();
+                if (!OKToContinue)
+                {
+                    gameManager.Sound.PlayRewind();
+                }
 			} while (!OKToContinue);
 		}
         Director.Play();

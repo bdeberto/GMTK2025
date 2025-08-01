@@ -7,6 +7,7 @@ public class GameplayManager : MonoBehaviour
     public LimbController Limbs = default;
     public TargetSpawner TargetSpawn = default;
     public GameUIController UIControl = default;
+    public GlobalSound Sound = default;
 
     public int targetsHit = 0;
     public int targetsRequired = 5;
@@ -36,6 +37,10 @@ public class GameplayManager : MonoBehaviour
 
     public void ReportHit(float distance)
     {
+        if (targetsHit == targetsRequired)
+        {
+            Sound.PlayPraiseBark();
+        }
 		UIControl.SetCounter(targetsHit++, targetsRequired);
         LevelTrack.OKToContinue = targetsHit >= targetsRequired;
 	}

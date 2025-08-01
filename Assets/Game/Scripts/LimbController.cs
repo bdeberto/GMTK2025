@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ public class LimbController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Highlighter.enabled = false;
+        Highlighter.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,6 +34,7 @@ public class LimbController : MonoBehaviour
 
     public void StunCurrentLimb()
     {
+        gameManager.Sound.PlayOuchBark();
         StartCoroutine(DoCurrentLimbStun());
     }
 
@@ -42,21 +42,24 @@ public class LimbController : MonoBehaviour
     {
         Rigidbody2D rb = LimbFollows[currentLimb].GetComponentInChildren<Rigidbody2D>();
         SpriteRenderer sr = null;
-        Color c = Color.white;
+        Color c = new Color(22f / 255f, 16f / 255f, 50f / 255f);
 		if (rb != null)
         {
             sr = rb.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
-                c = sr.color;
-                sr.color = Color.red;
+                sr.color = new Color(224f / 255f, 109f / 255f, 6f / 255f);
             }
         }
         LimbColliders[currentLimb].Deactivate();
         LimbFollows[currentLimb].Rest();
+        int stunnedLimb = currentLimb;
         yield return new WaitForSeconds(1f);
-		LimbColliders[currentLimb].DoCollisions();
-        LimbFollows[currentLimb].Wake();
+        if (stunnedLimb == currentLimb)
+        {
+            LimbColliders[currentLimb].DoCollisions();
+            LimbFollows[currentLimb].Wake();
+        }
         if (sr != null)
         {
             sr.color = c;
@@ -141,13 +144,13 @@ public class LimbController : MonoBehaviour
 			if (sr != null)
 			{
 				c = sr.color;
-				sr.color = Color.green;
+				sr.color = new Color(254f / 255f, 198f / 255f, 6f / 255f);
 			}
 		}
         Highlighter.transform.position = LimbFollows[index].transform.position;
-        Highlighter.enabled = true;
-        yield return new WaitForSeconds(3);
-		Highlighter.enabled = false;
+		Highlighter.gameObject.SetActive(true);
+		yield return new WaitForSeconds(3);
+		Highlighter.gameObject.SetActive(false);
 		if (sr != null)
 		{
 			sr.color = c;

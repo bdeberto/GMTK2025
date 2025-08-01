@@ -47,8 +47,8 @@ public class LimbTarget : MonoBehaviour
     {
         gameManager = manager;
 		originalColor = HitIndicator.color;
-		IndicatorRing.DOScale(2f, AliveTime);
-        IndicatorRing.DORotate(Vector3.forward * 180f, AliveTime).SetEase(Ease.OutCubic);
+		IndicatorRing.DOScale(.35f, AliveTime);
+        //IndicatorRing.DORotate(Vector3.forward * 180f, AliveTime).SetEase(Ease.OutCubic);
         alive = true;
         StartCoroutine(SignalParent());
     }
@@ -57,7 +57,7 @@ public class LimbTarget : MonoBehaviour
     {
         yield return new WaitForSeconds(AliveTime);
         transform.DOScale(0f, .5f);
-		IndicatorRing.DORotate(Vector3.zero, .2f);
+		//IndicatorRing.DORotate(Vector3.zero, .2f);
         if (hit != null)
         {
             float d = Vector3.Distance(transform.position, hit.position);

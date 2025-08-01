@@ -925,6 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 265611331}
   - component: {fileID: 265611330}
+  - component: {fileID: 265611332}
   m_Layer: 0
   m_Name: GlobalSFX
   m_TagString: Untagged
@@ -944,7 +945,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1044,6 +1045,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &265611332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265611329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b805e19ea955ca4dbe30c7914c7828f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuBarks:
+  - {fileID: 8300000, guid: 6c7e71ec86a47914bae26f80c4f88fe6, type: 3}
+  - {fileID: 8300000, guid: 17cb1ab9c9bf0764ea23b45b5507df07, type: 3}
+  OuchBarks:
+  - {fileID: 8300000, guid: b58b649a2817fd344816702ccc95da9d, type: 3}
+  - {fileID: 8300000, guid: 0f28ff92c6decbe44b75a157e878da3b, type: 3}
+  - {fileID: 8300000, guid: 274becf75d2040c4c8c278b29886892f, type: 3}
+  PraiseBarks:
+  - {fileID: 8300000, guid: f153c36501362ec43a901de7a4fb1640, type: 3}
+  - {fileID: 8300000, guid: b32280536458adf4eb98793d14d7b0c4, type: 3}
+  - {fileID: 8300000, guid: 48f2f07a688b74e478af363a71325cc7, type: 3}
+  Rewind: {fileID: 8300000, guid: 14914b1448f231e47a90df0d52a9e0ff, type: 3}
 --- !u!1 &299231193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,6 +4005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1628747745}
+  - component: {fileID: 1628747749}
   - component: {fileID: 1628747746}
   - component: {fileID: 1628747748}
   - component: {fileID: 1628747747}
@@ -4021,6 +4047,7 @@ MonoBehaviour:
   Limbs: {fileID: 900630890}
   TargetSpawn: {fileID: 1628747748}
   UIControl: {fileID: 191688873}
+  Sound: {fileID: 265611332}
   targetsHit: 0
   targetsRequired: 5
 --- !u!114 &1628747747
@@ -4072,6 +4099,18 @@ MonoBehaviour:
   - {fileID: 350692418}
   - {fileID: 717389985}
   - {fileID: 2000783841}
+--- !u!114 &1628747749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628747744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8bf3e217ca2c24893ef9b9ef7527e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1642710555
 GameObject:
   m_ObjectHideFlags: 0
