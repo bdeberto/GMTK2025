@@ -89,9 +89,11 @@ public class LevelTrackController : MonoBehaviour
             {
                 Director.extrapolationMode = DirectorWrapMode.None;
                 Director.playableAsset = LeadInAsset;
-                gameManager.Limbs.ActivateLimb(i);
-                Director.Play();
-                yield return new WaitForSeconds((float)Director.duration);
+				Director.Play();
+                gameManager.Limbs.LimbHighlight(i);
+				yield return new WaitForSeconds(3);
+				gameManager.Limbs.ActivateLimb(i);
+                yield return new WaitForSeconds(2);
                 Director.playableAsset = LevelAsset;
                 Director.Play();
                 for (int j = 0; j < 4; ++j)

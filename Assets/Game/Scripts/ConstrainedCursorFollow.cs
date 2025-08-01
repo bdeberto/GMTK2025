@@ -11,7 +11,7 @@ public class ConstrainedCursorFollow : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        resting = false;
+        resting = true;
         startPostition = transform.position;
     }
 
