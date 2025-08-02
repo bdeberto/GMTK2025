@@ -32,9 +32,10 @@ public class GameplayManager : MonoBehaviour
 
     IEnumerator DoPlayGame()
     {
+		//BeatBounceSync.SetBPM(90f);
+		//Limbs.ActivateLimb(0);
 		yield return new WaitForSeconds(3);
-		//LevelTrack.BeginLevel();
-		Limbs.ActivateLimb(0);
+		LevelTrack.BeginLevel();
 	}
 
     public void ReportHit(float distance)

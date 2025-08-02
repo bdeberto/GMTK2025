@@ -7,6 +7,7 @@ public class LimbController : MonoBehaviour
     public LimbCollision[] LimbColliders = default;
     public MotionRecorder[] Recorders = default;
     public SpriteRenderer Highlighter = default;
+    public PipDisplay Pips = default;
 
     int currentLimb = 3;
     GameplayManager gameManager = default;
@@ -30,6 +31,7 @@ public class LimbController : MonoBehaviour
         {
             c.Activate(manager);
         }
+        Pips.Activate(manager);
     }
 
     public void StunCurrentLimb()
@@ -72,6 +74,7 @@ public class LimbController : MonoBehaviour
 		{
             if (i == index)
             {
+                Pips.Attach(LimbColliders[i].transform);
                 LimbFollows[i].Wake();
 				LimbColliders[i].DoCollisions();
                 currentLimb = i;

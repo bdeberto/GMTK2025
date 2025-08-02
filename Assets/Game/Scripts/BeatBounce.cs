@@ -23,6 +23,14 @@ public static class BeatBounceSync
             b.StartBounce(bpm);
         }
     }
+
+    public static void StopBounce()
+    {
+        foreach (BeatBounce b in components)
+        {
+            b.StopBounce();
+        }
+    }
 }
 
 public class BeatBounce : MonoBehaviour
@@ -56,9 +64,4 @@ public class BeatBounce : MonoBehaviour
         transform.position = startingPos;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
