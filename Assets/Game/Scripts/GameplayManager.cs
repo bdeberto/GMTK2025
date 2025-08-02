@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using UnityEngine;
 
@@ -32,7 +33,8 @@ public class GameplayManager : MonoBehaviour
     IEnumerator DoPlayGame()
     {
 		yield return new WaitForSeconds(3);
-		LevelTrack.BeginLevel();
+		//LevelTrack.BeginLevel();
+		Limbs.ActivateLimb(1);
 	}
 
     public void ReportHit(float distance)

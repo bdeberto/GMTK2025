@@ -89,12 +89,17 @@ public class LevelTrackController : MonoBehaviour
 			do
             {
                 Director.extrapolationMode = DirectorWrapMode.None;
-                Director.playableAsset = LeadInAsset;
+				SoundChannels[0].enabled = true;
+				Director.playableAsset = LeadInAsset;
 				Director.Play();
                 gameManager.Limbs.LimbHighlight(i);
 				yield return new WaitForSeconds(8f / bpm * 60f - 2f);
 				gameManager.Limbs.ActivateLimb(i);
                 yield return new WaitForSeconds(2f);
+                if (i != 0)
+                {
+                    SoundChannels[0].enabled = false;
+                }
                 Director.playableAsset = LevelAsset;
                 Director.Play();
                 for (int j = 0; j < 4; ++j)
@@ -123,6 +128,10 @@ public class LevelTrackController : MonoBehaviour
             }
 		}
         Director.Play();
+        foreach (AudioSource a in SoundChannels)
+        {
+            a.enabled = true;
+        }
 		Director.extrapolationMode = DirectorWrapMode.Loop;
 		for (int j = 0; j < 4; ++j)
 		{

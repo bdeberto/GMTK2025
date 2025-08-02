@@ -12,7 +12,7 @@ public class ConstrainedCursorFollow : MonoBehaviour
     void Start()
     {
         resting = true;
-        startPostition = transform.position;
+        startPostition = transform.parent.position;
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class ConstrainedCursorFollow : MonoBehaviour
         }
         else
         {
-            float z = transform.position.z;
+            float z = transform.parent.position.z;
             Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.z = z;
             float d = Vector3.Distance(Constraint.position, target);
@@ -40,7 +40,7 @@ public class ConstrainedCursorFollow : MonoBehaviour
                 targetPos = target;
             }
         }
-        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 7f);
+        transform.parent.position = Vector3.Lerp(transform.parent.position, targetPos, Time.deltaTime * 7f);
     }
 
     public void Rest()
