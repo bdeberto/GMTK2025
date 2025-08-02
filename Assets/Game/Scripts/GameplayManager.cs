@@ -9,6 +9,7 @@ public class GameplayManager : MonoBehaviour
     public TargetSpawner TargetSpawn = default;
     public GameUIController UIControl = default;
     public GlobalSound Sound = default;
+    public TokenSpawner Tokens = default;
 
     public int targetsHit = 0;
     public int targetsRequired = 5;
@@ -20,6 +21,7 @@ public class GameplayManager : MonoBehaviour
         Limbs.Activate(this);
         Limbs.DeactivateAllLimbs();
         TargetSpawn.Activate(this);
+        Tokens.Activate(this);
         UIControl.SetCounter(targetsHit, targetsRequired);
         StartCoroutine(DoPlayGame());
     }
@@ -35,7 +37,7 @@ public class GameplayManager : MonoBehaviour
 		//BeatBounceSync.SetBPM(90f);
 		//Limbs.ActivateLimb(0);
 		yield return new WaitForSeconds(3);
-		LevelTrack.BeginLevel();
+		//LevelTrack.BeginLevel();
 	}
 
     public void ReportHit(float distance)
@@ -55,6 +57,35 @@ public class GameplayManager : MonoBehaviour
 
     public void SpawnTargets()
     {
-        TargetSpawn.SpawnNextTarget();
+        TargetSpawn.SpawnNextTargetSet();
     }
+
+    public void SpawnToken0()
+    {
+        if (0 == Limbs.currentLimb)
+        {
+            Tokens.SpawnNextToken();
+        }
+    }
+	public void SpawnToken1()
+	{
+		if (1 == Limbs.currentLimb)
+		{
+			Tokens.SpawnNextToken();
+		}
+	}
+	public void SpawnToken2()
+	{
+		if (2 == Limbs.currentLimb)
+		{
+			Tokens.SpawnNextToken();
+		}
+	}
+	public void SpawnToken3()
+	{
+		if (3 == Limbs.currentLimb)
+		{
+			Tokens.SpawnNextToken();
+		}
+	}
 }

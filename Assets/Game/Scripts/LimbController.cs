@@ -9,7 +9,7 @@ public class LimbController : MonoBehaviour
     public SpriteRenderer Highlighter = default;
     public PipDisplay Pips = default;
 
-    int currentLimb = 3;
+    public int currentLimb = 3;
     GameplayManager gameManager = default;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

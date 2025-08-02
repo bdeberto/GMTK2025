@@ -13,6 +13,7 @@ public class LevelTrackController : MonoBehaviour
 		public PlayableAsset leadIn;
         public PlayableAsset levelTrack;
         public Transform[] limbTargetParents;
+        public Transform tokenSpawnRoot;
         public int[] pointThresholds;
     }
 
@@ -76,15 +77,20 @@ public class LevelTrackController : MonoBehaviour
         float bpm = 90f;
         BeatBounceSync.SetBPM(bpm);
         Camera.main.DOColor(new Color(224f / 255f, 109f / 255f, 6f / 255f), 2f);
-        foreach (AudioSource a in SoundChannels)
+        gameManager.targetsRequired = 0;
+		gameManager.targetsHit = 0;
+		foreach (AudioSource a in SoundChannels)
         {
             a.enabled = false;
         }
-        for (int i = 0; i < 4; ++i)
+        Transform[] tokenRoots = levels[0].tokenSpawnRoot.GetComponentsInChildren<Transform>();
+
+		for (int i = 0; i < 4; ++i)
         {
+			gameManager.Tokens.TokenRoot = tokenRoots[i + 1];
 			gameManager.TargetSpawn.Targets = levels[0].limbTargetParents[i].GetComponentsInChildren<Transform>();
-            gameManager.targetsHit = 0;
-            gameManager.targetsRequired = levels[0].pointThresholds[i];
+            gameManager.TargetSpawn.SpawnNextTargetSet();
+            gameManager.targetsRequired += levels[0].pointThresholds[i];
 			SoundChannels[i].enabled = true;
 			do
             {
@@ -116,7 +122,9 @@ public class LevelTrackController : MonoBehaviour
                 if (!OKToContinue)
                 {
                     gameManager.Sound.PlayRewind();
+                    gameManager.TargetSpawn.WipeTargets();
                 }
+                gameManager.Tokens.CleanUpTokens();
 			} while (!OKToContinue);
             if (i < 3)
             {
@@ -127,6 +135,7 @@ public class LevelTrackController : MonoBehaviour
                 gameManager.Sound.PlayGoal();
             }
 		}
+        gameManager.TargetSpawn.ClearTargets();
         Director.Play();
         foreach (AudioSource a in SoundChannels)
         {

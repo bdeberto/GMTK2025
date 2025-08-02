@@ -5,6 +5,8 @@ public class TokenTarget : MonoBehaviour
     public PipDisplay Display = default;
 
     int tokensHeld = 0;
+    int tokensThisRound = 0;
+    GameplayManager gameManager = default;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +20,20 @@ public class TokenTarget : MonoBehaviour
         
     }
 
+    public void Activate(GameplayManager manager)
+    {
+        gameManager = manager;
+    }
 
+    public void ResetTargets()
+    {
+        tokensHeld -= tokensThisRound;
+        tokensThisRound = 0;
+		for (int i = 0; i < Display.Pips.Length; ++i)
+		{
+			Display.Pips[i].enabled = i + 1 <= tokensHeld;
+		}
+	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -30,6 +45,7 @@ public class TokenTarget : MonoBehaviour
 			{
                 other.pipsHeld--;
                 tokensHeld++;
+                tokensThisRound++;
                 exchangeHappened = true;
 			}
             for (int i = 0; i < Display.Pips.Length; ++i)
@@ -43,6 +59,11 @@ public class TokenTarget : MonoBehaviour
 			if (exchangeHappened)
             {
                 //TODO: effects
+                if (tokensHeld == Display.Pips.Length)
+                {
+                    gameManager.Sound.PlayPraiseBark();
+                    gameManager.targetsHit++;
+                }
             }
 		}
 	}

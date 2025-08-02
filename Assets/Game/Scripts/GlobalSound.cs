@@ -9,6 +9,7 @@ public class GlobalSound : MonoBehaviour
     public AudioResource Rewind = default;
 	public AudioResource LoopBack = default;
 	public AudioResource Goal = default;
+	public AudioResource Ding = default;
 
     AudioSource source = default;
 
@@ -54,6 +55,12 @@ public class GlobalSound : MonoBehaviour
 	public void PlayGoal()
 	{
 		source.resource = Goal;
+		source.Play();
+	}
+
+	public void PlayDing()
+	{
+		source.resource = Ding;
 		source.Play();
 	}
 }
