@@ -18,8 +18,6 @@ public class LevelTrackController : MonoBehaviour
     }
 
     public PlayableDirector Director = default;
-    public PlayableAsset LeadInAsset = default;
-    public PlayableAsset LevelAsset = default;
     public AudioSource[] SoundChannels = default;
 
     public Level[] levels = default;
@@ -96,7 +94,7 @@ public class LevelTrackController : MonoBehaviour
             {
                 Director.extrapolationMode = DirectorWrapMode.None;
 				SoundChannels[0].enabled = true;
-				Director.playableAsset = LeadInAsset;
+				Director.playableAsset = levels[0].leadIn;
 				Director.Play();
                 gameManager.Limbs.LimbHighlight(i);
 				yield return new WaitForSeconds(8f / bpm * 60f - 2f);
@@ -106,7 +104,7 @@ public class LevelTrackController : MonoBehaviour
                 {
                     SoundChannels[0].enabled = false;
                 }
-                Director.playableAsset = LevelAsset;
+                Director.playableAsset = levels[0].levelTrack;
                 Director.Play();
                 for (int j = 0; j < 4; ++j)
                 {
@@ -124,7 +122,12 @@ public class LevelTrackController : MonoBehaviour
                     gameManager.Sound.PlayRewind();
                     gameManager.TargetSpawn.WipeTargets();
                 }
+                else
+                {
+                    gameManager.TargetSpawn.HardenTargets();
+                }
                 gameManager.Tokens.CleanUpTokens();
+                gameManager.Limbs.Pips.DumpTokens();
 			} while (!OKToContinue);
             if (i < 3)
             {

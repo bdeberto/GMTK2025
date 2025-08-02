@@ -37,15 +37,11 @@ public class GameplayManager : MonoBehaviour
 		//BeatBounceSync.SetBPM(90f);
 		//Limbs.ActivateLimb(0);
 		yield return new WaitForSeconds(3);
-		//LevelTrack.BeginLevel();
+		LevelTrack.BeginLevel();
 	}
 
     public void ReportHit(float distance)
     {
-        if (targetsHit == targetsRequired)
-        {
-            Sound.PlayPraiseBark();
-        }
 		UIControl.SetCounter(targetsHit++, targetsRequired);
         LevelTrack.OKToContinue = targetsHit >= targetsRequired;
 	}
@@ -62,28 +58,28 @@ public class GameplayManager : MonoBehaviour
 
     public void SpawnToken0()
     {
-        if (0 == Limbs.currentLimb)
+        if (!LevelTrack.IsDone() && 0 == Limbs.currentLimb)
         {
             Tokens.SpawnNextToken();
         }
     }
 	public void SpawnToken1()
 	{
-		if (1 == Limbs.currentLimb)
+		if (!LevelTrack.IsDone() && 1 == Limbs.currentLimb)
 		{
 			Tokens.SpawnNextToken();
 		}
 	}
 	public void SpawnToken2()
 	{
-		if (2 == Limbs.currentLimb)
+		if (!LevelTrack.IsDone() && 2 == Limbs.currentLimb)
 		{
 			Tokens.SpawnNextToken();
 		}
 	}
 	public void SpawnToken3()
 	{
-		if (3 == Limbs.currentLimb)
+		if (!LevelTrack.IsDone() && 3 == Limbs.currentLimb)
 		{
 			Tokens.SpawnNextToken();
 		}

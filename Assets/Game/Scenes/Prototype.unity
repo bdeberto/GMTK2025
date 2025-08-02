@@ -1895,7 +1895,7 @@ MonoBehaviour:
   - {fileID: 360218732}
   - {fileID: 1231614137}
   Root: {fileID: 381290471}
-  Target: {fileID: 2025085771}
+  Target: {fileID: 368507414}
 --- !u!1 &567155397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,8 +3010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Director: {fileID: 900630891}
-  LeadInAsset: {fileID: 11400000, guid: 138a229a94ecb2442999c30cb4f3d714, type: 2}
-  LevelAsset: {fileID: 11400000, guid: 4853641e43e98634d9e07d72b68d1b64, type: 2}
   SoundChannels:
   - {fileID: 21337254}
   - {fileID: 1372454879}
@@ -3027,8 +3025,8 @@ MonoBehaviour:
     - {fileID: 444184117}
     - {fileID: 1532646646}
     - {fileID: 1724706249}
-    tokenSpawnRoot: {fileID: 0}
-    pointThresholds: 02000000030000000400000009000000
+    tokenSpawnRoot: {fileID: 1914032790}
+    pointThresholds: 02000000010000000100000001000000
 --- !u!1 &901052773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5209023552354728672, guid: 9dc8d6fb12df50947aee29753803582b, type: 3}
@@ -3870,7 +3868,7 @@ MonoBehaviour:
   - {fileID: 92582827}
   - {fileID: 1462539653}
   Root: {fileID: 1305690379}
-  Target: {fileID: 567155398}
+  Target: {fileID: 972319296}
 --- !u!120 &1073289002
 LineRenderer:
   serializedVersion: 2
@@ -5650,7 +5648,7 @@ MonoBehaviour:
   - {fileID: 360218732}
   - {fileID: 1231614137}
   Root: {fileID: 381290471}
-  Target: {fileID: 2025085771}
+  Target: {fileID: 368507414}
 --- !u!120 &1544787988
 LineRenderer:
   serializedVersion: 2
@@ -8146,7 +8144,7 @@ MonoBehaviour:
   - {fileID: 92582827}
   - {fileID: 1462539653}
   Root: {fileID: 1305690379}
-  Target: {fileID: 567155398}
+  Target: {fileID: 972319296}
 --- !u!1001 &1806101835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8554,9 +8552,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1196769167}
-  - {fileID: 1675494370}
   - {fileID: 1786304829}
   - {fileID: 619922451}
+  - {fileID: 1675494370}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922824359

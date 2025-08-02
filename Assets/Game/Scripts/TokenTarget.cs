@@ -35,6 +35,11 @@ public class TokenTarget : MonoBehaviour
 		}
 	}
 
+    public void RoundClear()
+    {
+        tokensThisRound = 0;
+    }
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
         PipDisplay other = collision.transform.parent.GetComponentInChildren<PipDisplay>();
@@ -62,7 +67,7 @@ public class TokenTarget : MonoBehaviour
                 if (tokensHeld == Display.Pips.Length)
                 {
                     gameManager.Sound.PlayPraiseBark();
-                    gameManager.targetsHit++;
+                    gameManager.ReportHit(0f);
                 }
             }
 		}

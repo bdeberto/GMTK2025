@@ -43,6 +43,14 @@ public class TargetSpawner : MonoBehaviour
         }
     }
 
+    public void HardenTargets()
+    {
+		foreach (TokenTarget t in spawnedTargets)
+		{
+			t.RoundClear();
+		}
+	}
+
     public void WipeTargets()
     {
 		foreach (TokenTarget t in spawnedTargets)

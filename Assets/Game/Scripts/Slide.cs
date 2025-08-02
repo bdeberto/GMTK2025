@@ -16,4 +16,9 @@ public class Slide : MonoBehaviour
     {
         
     }
+
+	private void OnDestroy()
+	{
+        DOTween.Kill(transform);
+	}
 }

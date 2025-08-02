@@ -32,6 +32,7 @@ public class TokenSpawner : MonoBehaviour
         float x = Random.Range(0f, 1f);
 		float y = Random.Range(0f, 1f);
         Token t = Instantiate(TokenPrefab);
+        t.Activate(gameManager);
         t.transform.parent = TokenRoot;
         t.transform.localPosition = new Vector3(x, y, 0);
         spawnedTokens.Add(t);
