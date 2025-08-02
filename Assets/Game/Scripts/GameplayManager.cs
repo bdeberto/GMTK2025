@@ -34,7 +34,7 @@ public class GameplayManager : MonoBehaviour
     {
 		yield return new WaitForSeconds(3);
 		//LevelTrack.BeginLevel();
-		Limbs.ActivateLimb(1);
+		Limbs.ActivateLimb(0);
 	}
 
     public void ReportHit(float distance)
