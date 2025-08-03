@@ -152,6 +152,7 @@ public class LimbController : MonoBehaviour
 		}
         Highlighter.transform.position = LimbFollows[index].transform.position;
 		Highlighter.gameObject.SetActive(true);
+		Pips.Attach(LimbColliders[index].transform);
 		yield return new WaitForSeconds(3);
 		Highlighter.gameObject.SetActive(false);
 		if (sr != null)

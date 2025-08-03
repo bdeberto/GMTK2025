@@ -23,7 +23,7 @@ public class GameplayManager : MonoBehaviour
         TargetSpawn.Activate(this);
         Tokens.Activate(this);
         UIControl.SetCounter(targetsHit, targetsRequired);
-        StartCoroutine(DoPlayGame());
+        //StartCoroutine(DoPlayGame());
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class GameplayManager : MonoBehaviour
         
     }
 
-    IEnumerator DoPlayGame()
+    public IEnumerator DoPlayGame()
     {
 		//BeatBounceSync.SetBPM(90f);
 		//Limbs.ActivateLimb(0);
